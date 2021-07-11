@@ -1,0 +1,11 @@
+{
+  "name": "ddangily",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hwimer/ddangily.git",
+  "author": "hwimer <hr.kim@infinigru.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.0.2"
+  }
+}
