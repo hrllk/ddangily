@@ -10,7 +10,7 @@ public class HomeController {
 
         System.out.println("hihi");
 
-        return "index";
+        return "/WEB-INF/views/index.html";
     }
 
 
