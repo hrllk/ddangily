@@ -6,6 +6,6 @@
   "author": "hwimer <hr.kim@infinigru.com>",
   "license": "MIT",
   "dependencies": {
-    "vue": "^2.6.14"
+    "bootstrap": "^5.0.2"
   }
 }
