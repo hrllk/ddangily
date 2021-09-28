@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rnj.ddangily.persistence.MasterConfigMapper">
+  <resultMap id="BaseResultMap" type="com.rnj.ddangily.model.MasterConfig">
+    <id column="master_config_id" jdbcType="BIGINT" property="masterConfigId" />
+    <result column="master_type" jdbcType="VARCHAR" property="masterType" />
+    <result column="master_key" jdbcType="VARCHAR" property="masterKey" />
+    <result column="master_value" jdbcType="VARCHAR" property="masterValue" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.rnj.ddangily.model.MasterConfig">
+    insert into master_config (master_config_id, master_type, master_key, 
+      master_value, enabled, created_by, 
+      created_at, updated_by, last_update
+      )
+    values (#{masterConfigId,jdbcType=BIGINT}, #{masterType,jdbcType=VARCHAR}, #{masterKey,jdbcType=VARCHAR}, 
+      #{masterValue,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.MasterConfig">
+    update master_config
+    set master_type = #{masterType,jdbcType=VARCHAR},
+      master_key = #{masterKey,jdbcType=VARCHAR},
+      master_value = #{masterValue,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=TINYINT},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+  </select>
+  <resultMap id="BaseResultMap" type="com.rnj.ddangily.model.MasterConfig">
+    <id column="master_config_id" jdbcType="BIGINT" property="masterConfigId" />
+    <result column="master_type" jdbcType="VARCHAR" property="masterType" />
+    <result column="master_key" jdbcType="VARCHAR" property="masterKey" />
+    <result column="master_value" jdbcType="VARCHAR" property="masterValue" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.rnj.ddangily.model.MasterConfig">
+    insert into master_config (master_config_id, master_type, master_key, 
+      master_value, enabled, created_by, 
+      created_at, updated_by, last_update
+      )
+    values (#{masterConfigId,jdbcType=BIGINT}, #{masterType,jdbcType=VARCHAR}, #{masterKey,jdbcType=VARCHAR}, 
+      #{masterValue,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.MasterConfig">
+    update master_config
+    set master_type = #{masterType,jdbcType=VARCHAR},
+      master_key = #{masterKey,jdbcType=VARCHAR},
+      master_value = #{masterValue,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=TINYINT},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+  </select>
+  <resultMap id="BaseResultMap" type="com.rnj.ddangily.model.MasterConfig">
+    <id column="master_config_id" jdbcType="BIGINT" property="masterConfigId" />
+    <result column="master_type" jdbcType="VARCHAR" property="masterType" />
+    <result column="master_key" jdbcType="VARCHAR" property="masterKey" />
+    <result column="master_value" jdbcType="VARCHAR" property="masterValue" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.rnj.ddangily.model.MasterConfig">
+    insert into master_config (master_config_id, master_type, master_key, 
+      master_value, enabled, created_by, 
+      created_at, updated_by, last_update
+      )
+    values (#{masterConfigId,jdbcType=BIGINT}, #{masterType,jdbcType=VARCHAR}, #{masterKey,jdbcType=VARCHAR}, 
+      #{masterValue,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.MasterConfig">
+    update master_config
+    set master_type = #{masterType,jdbcType=VARCHAR},
+      master_key = #{masterKey,jdbcType=VARCHAR},
+      master_value = #{masterValue,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=TINYINT},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+  </select>
+  <resultMap id="BaseResultMap" type="com.rnj.ddangily.model.MasterConfig">
+    <id column="master_config_id" jdbcType="BIGINT" property="masterConfigId" />
+    <result column="master_type" jdbcType="VARCHAR" property="masterType" />
+    <result column="master_key" jdbcType="VARCHAR" property="masterKey" />
+    <result column="master_value" jdbcType="VARCHAR" property="masterValue" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.rnj.ddangily.model.MasterConfig">
+    insert into master_config (master_config_id, master_type, master_key, 
+      master_value, enabled, created_by, 
+      created_at, updated_by, last_update
+      )
+    values (#{masterConfigId,jdbcType=BIGINT}, #{masterType,jdbcType=VARCHAR}, #{masterKey,jdbcType=VARCHAR}, 
+      #{masterValue,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.MasterConfig">
+    update master_config
+    set master_type = #{masterType,jdbcType=VARCHAR},
+      master_key = #{masterKey,jdbcType=VARCHAR},
+      master_value = #{masterValue,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=TINYINT},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=VARCHAR},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled, created_by, 
+    created_at, updated_by, last_update
+    from master_config
+  </select>
+  <resultMap id="BaseResultMap" type="com.rnj.ddangily.model.MasterConfig">
+    <id column="master_config_id" jdbcType="BIGINT" property="masterConfigId" />
+    <result column="master_type" jdbcType="VARCHAR" property="masterType" />
+    <result column="master_key" jdbcType="VARCHAR" property="masterKey" />
+    <result column="master_value" jdbcType="VARCHAR" property="masterValue" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.rnj.ddangily.model.MasterConfig">
+    insert into master_config (master_config_id, master_type, master_key, 
+      master_value, enabled)
+    values (#{masterConfigId,jdbcType=BIGINT}, #{masterType,jdbcType=VARCHAR}, #{masterKey,jdbcType=VARCHAR}, 
+      #{masterValue,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.MasterConfig">
+    update master_config
+    set master_type = #{masterType,jdbcType=VARCHAR},
+      master_key = #{masterKey,jdbcType=VARCHAR},
+      master_value = #{masterValue,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=TINYINT}
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled
+    from master_config
+    where master_config_id = #{masterConfigId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select master_config_id, master_type, master_key, master_value, enabled
+    from master_config
+  </select>
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!--    <classPathEntry location="~/.m2/repository/org/mariadb/jdbc/mariadb-java-client/2.4.4/mariadb-java-client-2.4.4.jar" />-->
+    <!-- <classPathEntry location="./mariadb-java-client-2.7.2.jar" /> -->
+    <classPathEntry location="./mariadb-java-client-2.4.4.jar" />
+<!--    <classPathEntry location="./mariadb-java-client-2.7.2.jar" />-->
+    <context id="simple" targetRuntime="MyBatis3simple">
+
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin">
+			<property name="useToStringFromRoot" value="true" />
+		</plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<!-- remove comment option  -->
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection
+                connectionURL="jdbc:mariadb://localhost:3306/ddangily"
+                driverClass="org.mariadb.jdbc.Driver" password="root1234"
+                userId="ddangily_admin"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator
+                targetPackage="com.rnj.ddangily.model"
+                targetProject="../../src/main/java">
+
+            <property name="enableSubPackages" value="true" />
+<!--            <property name="exampleTargetPackage" value="true" />-->
+<!--            <property name="exampleTargetProject" value="true" />-->
+<!--            <property name="trimStrings" value="true" />-->
+        </javaModelGenerator>
+
+        <sqlMapGenerator
+                targetPackage="com.rnj.ddangily.persistence"
+                targetProject="../../src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER"
+                targetPackage="com.rnj.ddangily.persistence"
+                targetProject="../../src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="instagram" domainObjectName="Instagram" enableDeleteByPrimaryKey="true" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
+
+<!--        <table schema="ddangily" tableName="instagram" domainObjectName="Instagram" >-->
+<!--            <property name="useActualColumnNames" value="false" />-->
+<!--            <property name="ignoreQualifiersAtRuntime" value="true" />-->
+<!--&lt;!&ndash;            <generatedKey column="instagram_id" sqlStatement="MariaDB" />&ndash;&gt;-->
+<!--            <generatedKey column="instagram_id" sqlStatement="MySql" identity="true" type="post" />-->
+<!--&lt;!&ndash;            <property nam="useActualColumnNames"&ndash;&gt;-->
+<!--&lt;!&ndash;            <property name="useActualColumnNames" value="true"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <generatedKey column="ID" sqlStatement="DB2" identity="true" />&ndash;&gt;-->
+<!--&lt;!&ndash;            <columnOverride column="DATE_FIELD" property="startDate" />&ndash;&gt;-->
+<!--&lt;!&ndash;            <ignoreColumn column="FRED" />&ndash;&gt;-->
+<!--&lt;!&ndash;            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />&ndash;&gt;-->
+<!--        </table>-->
+        <table tableName="master_config" domainObjectName="MasterConfig"
+               enableDeleteByPrimaryKey="true" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
+<!--        <table tableName="member" />-->
+    </context>
+</generatorConfiguration>
