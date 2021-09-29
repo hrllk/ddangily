@@ -36,11 +36,11 @@ CREATE TABLE master_config
   DEFAULT CHARSET = utf8;
 
 INSERT INTO master_config (master_type,master_key,master_value,enabled) values
-# ('instagram','appId','197394555734199',1),
-# ('instagram','redirectUrl','https://9c3117167348.ngrok.io/',1),
-# ('instagram','authorizeKeyUrl','https://api.instagram.com/oauth/authorize?client_id={app-id}&redirect_uri={redirect-uri}&scope=user_profile,user_media&response_type=code',1),
-# ('instagram','authorizeKey','https://api.instagram.com/oauth/authorize?client_id={app-id}&redirect_uri={redirect-uri}&scope=user_profile,user_media&response_type=code',1),
-# ('instagram','tokenPublishUrl','https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret={instagram-app-secret}&access_token={access_token}',1),
+-- ('instagram','appId','197394555734199',1),
+-- ('instagram','redirectUrl','https://9c3117167348.ngrok.io/',1),
+-- ('instagram','authorizeKeyUrl','https://api.instagram.com/oauth/authorize?client_id={app-id}&redirect_uri={redirect-uri}&scope=user_profile,user_media&response_type=code',1),
+-- ('instagram','authorizeKey','https://api.instagram.com/oauth/authorize?client_id={app-id}&redirect_uri={redirect-uri}&scope=user_profile,user_media&response_type=code',1),
+-- ('instagram','tokenPublishUrl','https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret={instagram-app-secret}&access_token={access_token}',1),
 ('instagram','tokenRefreshUrl','http://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token={long-lived-access-token}',1),
 ('instagram','token','IGQVJVRTlRaHpZAMjUydXdzT1Q4SV9Kck1zWUxzcU9CYXFsZAEI0bVJwcU5qcXVBdEVtUTVIckNrdjdXSFBKVy1zY0xWRFJ5TG1xeHg5NGkyU1p4OHo0cS1jeGZAyWWRxcXZAYcWRub3RR',1),
 ('instagram','user_id','17841447012364353',1),
