@@ -5,7 +5,8 @@
     <!-- <classPathEntry location="./mariadb-java-client-2.7.2.jar" /> -->
     <classPathEntry location="./mariadb-java-client-2.4.4.jar" />
 <!--    <classPathEntry location="./mariadb-java-client-2.7.2.jar" />-->
-    <context id="simple" targetRuntime="MyBatis3simple">
+<!--    <context id="simple" targetRuntime="MyBatis3simple">-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
 
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin">
 			<property name="useToStringFromRoot" value="true" />
@@ -13,7 +14,7 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 		<!-- remove comment option  -->
         <commentGenerator>
-            <property name="suppressDate" value="false"/>
+<!--            <property name="suppressDate" value="false"/>-->
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
 
