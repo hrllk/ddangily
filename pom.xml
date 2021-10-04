@@ -119,6 +119,12 @@
 <!--			<version>1.2.3</version>-->
 <!--		</dependency>-->
 
+		<!-- org.apache.ibatis.annotations.Param 의존성 사용을위함 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.4</version>
+		</dependency>
 	</dependencies>
 
 
