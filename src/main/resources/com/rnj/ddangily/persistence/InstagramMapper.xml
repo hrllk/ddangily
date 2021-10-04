@@ -11,9 +11,97 @@
     <result column="caption" jdbcType="VARCHAR" property="caption" />
     <result column="collection_time" jdbcType="TIMESTAMP" property="collectionTime" />
   </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    instagram_id, id, media_type, media_url, permalink, username, caption, collection_time
+  </sql>
+  <select id="selectByExample" parameterType="com.rnj.ddangily.model.InstagramExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from instagram
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from instagram
+    where instagram_id = #{instagramId,jdbcType=BIGINT}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from instagram
     where instagram_id = #{instagramId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.rnj.ddangily.model.InstagramExample">
+    delete from instagram
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
   </delete>
   <insert id="insert" parameterType="com.rnj.ddangily.model.Instagram">
     insert into instagram (instagram_id, id, media_type, 
@@ -23,6 +111,140 @@
       #{mediaUrl,jdbcType=VARCHAR}, #{permalink,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
       #{caption,jdbcType=VARCHAR}, #{collectionTime,jdbcType=TIMESTAMP})
   </insert>
+  <insert id="insertSelective" parameterType="com.rnj.ddangily.model.Instagram">
+    insert into instagram
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="instagramId != null">
+        instagram_id,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mediaType != null">
+        media_type,
+      </if>
+      <if test="mediaUrl != null">
+        media_url,
+      </if>
+      <if test="permalink != null">
+        permalink,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="caption != null">
+        caption,
+      </if>
+      <if test="collectionTime != null">
+        collection_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="instagramId != null">
+        #{instagramId,jdbcType=BIGINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaUrl != null">
+        #{mediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permalink != null">
+        #{permalink,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="caption != null">
+        #{caption,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionTime != null">
+        #{collectionTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.rnj.ddangily.model.InstagramExample" resultType="java.lang.Long">
+    select count(*) from instagram
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update instagram
+    <set>
+      <if test="record.instagramId != null">
+        instagram_id = #{record.instagramId,jdbcType=BIGINT},
+      </if>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.mediaType != null">
+        media_type = #{record.mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mediaUrl != null">
+        media_url = #{record.mediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.permalink != null">
+        permalink = #{record.permalink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caption != null">
+        caption = #{record.caption,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collectionTime != null">
+        collection_time = #{record.collectionTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update instagram
+    set instagram_id = #{record.instagramId,jdbcType=BIGINT},
+      id = #{record.id,jdbcType=BIGINT},
+      media_type = #{record.mediaType,jdbcType=VARCHAR},
+      media_url = #{record.mediaUrl,jdbcType=VARCHAR},
+      permalink = #{record.permalink,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      caption = #{record.caption,jdbcType=VARCHAR},
+      collection_time = #{record.collectionTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rnj.ddangily.model.Instagram">
+    update instagram
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="mediaType != null">
+        media_type = #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaUrl != null">
+        media_url = #{mediaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permalink != null">
+        permalink = #{permalink,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="caption != null">
+        caption = #{caption,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionTime != null">
+        collection_time = #{collectionTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where instagram_id = #{instagramId,jdbcType=BIGINT}
+  </update>
   <update id="updateByPrimaryKey" parameterType="com.rnj.ddangily.model.Instagram">
     update instagram
     set id = #{id,jdbcType=BIGINT},
@@ -34,13 +256,4 @@
       collection_time = #{collectionTime,jdbcType=TIMESTAMP}
     where instagram_id = #{instagramId,jdbcType=BIGINT}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select instagram_id, id, media_type, media_url, permalink, username, caption, collection_time
-    from instagram
-    where instagram_id = #{instagramId,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select instagram_id, id, media_type, media_url, permalink, username, caption, collection_time
-    from instagram
-  </select>
 </mapper>
