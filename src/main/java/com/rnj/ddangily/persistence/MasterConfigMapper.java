@@ -3,8 +3,10 @@ package com.rnj.ddangily.persistence;
 import com.rnj.ddangily.model.MasterConfig;
 import com.rnj.ddangily.model.MasterConfigExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface MasterConfigMapper {
     long countByExample(MasterConfigExample example);
 

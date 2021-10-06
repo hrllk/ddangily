@@ -3,8 +3,10 @@ package com.rnj.ddangily.persistence;
 import com.rnj.ddangily.model.Instagram;
 import com.rnj.ddangily.model.InstagramExample;
 import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface InstagramMapper {
     long countByExample(InstagramExample example);
 
