@@ -3,6 +3,7 @@ CREATE DATABASE ddangily DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 -- instagram 자료 받아올 항아리
+DROP TABLE IF EXISTS instagram;
 CREATE TABLE instagram
 (
     instagram_id BIGINT UNSIGNED  NOT NULL AUTO_INCREMENT,
@@ -11,7 +12,7 @@ CREATE TABLE instagram
     media_url VARCHAR(1024),
     permalink VARCHAR(256),
     username VARCHAR(56),
-    caption VARCHAR(1024),
+    caption VARCHAR(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  DEFAULT NULL,
     collection_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
     PRIMARY KEY (instagram_id)
 ) ENGINE = InnoDB

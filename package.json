@@ -6,6 +6,8 @@
   "author": "hwimer <hr.kim@infinigru.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^5.0.2"
+    "bootstrap": "^5.0.2",
+    "jquery": "^3.6.0",
+    "swiper": "^7.2.0"
   }
 }

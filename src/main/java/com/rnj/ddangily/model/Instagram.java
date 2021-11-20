@@ -18,7 +18,11 @@ public class Instagram implements Serializable {
 
     private String caption;
 
+    private Byte enabled;
+
     private Date collectionTime;
+
+    private Date lastUpdateTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -78,12 +82,28 @@ public class Instagram implements Serializable {
         this.caption = caption;
     }
 
+    public Byte getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Byte enabled) {
+        this.enabled = enabled;
+    }
+
     public Date getCollectionTime() {
         return collectionTime;
     }
 
     public void setCollectionTime(Date collectionTime) {
         this.collectionTime = collectionTime;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 
     @Override
@@ -99,7 +119,9 @@ public class Instagram implements Serializable {
         sb.append(", permalink=").append(permalink);
         sb.append(", username=").append(username);
         sb.append(", caption=").append(caption);
+        sb.append(", enabled=").append(enabled);
         sb.append(", collectionTime=").append(collectionTime);
+        sb.append(", lastUpdateTime=").append(lastUpdateTime);
         sb.append("]");
         return sb.toString();
     }

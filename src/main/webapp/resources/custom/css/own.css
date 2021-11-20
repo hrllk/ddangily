@@ -1,2 +1,48 @@
 .navbar-nav .nav-item a.active {
     color: #f0ab72; }
+
+
+.d-posts-frame {
+    margin-top: 20px;
+}
+
+.d-posts-frame .d-posts {
+    max-width : 400px;
+    max-height : 400px;
+
+    width : auto;
+    height : auto;
+}
+
+.d-img-posts {
+    /*max-width : 400px;*/
+    /*max-height : 400px;*/
+    /*width : auto;*/
+    /*height : auto;*/
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.d-div-posts {
+    margin-bottom: 20px;
+}
+
+/*.d-posts img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}*/
+
+
+/*video {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    object-fit: cover;*/
+/*}*/
+
+/*.d-max-small {*/
+/*    width: auto; height: auto;*/
+/*    max-width: 300px;*/
+/*    max-height: 300px;*/
+/*}*/

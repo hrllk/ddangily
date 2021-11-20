@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%--<link rel="shortcut icon" href="<c:url value'/resources/custom/img/ico/ddangilyFavCon.jpg'/>" type="image/x-icon">--%>
 <header class="header navbar-area bg-white">
-    <div class="container">
+<%--    <div class="container">--%>
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg">
@@ -13,34 +13,26 @@
                         <span class="toggler-icon"></span>
                         <span class="toggler-icon"></span>
                     </button>
-
+<%--                    <div class="w-100">--%>
                     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                        <ul id="nav" class="navbar-nav ml-auto">
+                        <ul id="nav" class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="page-scroll active" href="#portfolio">Instagram</a>
-                            </li>
-                            <%--                            <li class="nav-item">--%>
-                            <%--                                <a class="page-scroll" href="#home">Home</a>--%>
-                            <%--                            </li>--%>
-                            <li class="nav-item">
-                                <a class="page-scroll" href="#about">About</a>
+                                <a class="page-scroll active" href="<c:url value="/"/>">Instagram</a>
+<%--                                <a class="page-scroll active" href="#portfolio"></a>--%>
                             </li>
                             <li class="nav-item">
-                                <a class="page-scroll" href="#services">Services</a>
+                                <a class="page-scroll" href="<c:url value="/about"/>">About</a>
+<%--                                <a class="page-scroll" href="about">오시는길</a>--%>
                             </li>
-                            <%--                            <li class="nav-item">--%>
-                            <%--                                <a class="page-scroll" href="#team">Team</a>--%>
-                            <%--                            </li>--%>
-                            <%--                            <li class="nav-item">--%>
-                            <%--                                <a class="page-scroll" href="#contact">Contact</a>--%>
-                            <%--                            </li>--%>
+                            <li class="nav-item">
+<%--                                <a class="page-scroll" href="#services">Services</a>--%>
+                                <a class="page-scroll" href="#<c:url value="/services"/>">Services</a>
+                            </li>
                         </ul>
-                        <%--                        <div class="header-btn">--%>
-                        <%--                            <a href="javascript:void(0)" class="theme-btn">Get Started</a>--%>
-                        <%--                        </div>--%>
                     </div> <!-- navbar collapse -->
+<%--                    </div>--%>
                 </nav> <!-- navbar -->
             </div>
         </div> <!-- row -->
-    </div> <!-- container -->
+<%--    </div> <!-- container -->--%>
 </header>

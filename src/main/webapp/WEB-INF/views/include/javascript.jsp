@@ -1,16 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hwimer
-  Date: 21. 7. 11.
-  Time: 오전 12:01
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-</body>
-</html>
+
+<script src="<c:url value='/resources/node_modules/jquery/dist/jquery.min.js'/>"></script>
+<script src="<c:url value='/resources/node_modules/bootstrap/dist/js/bootstrap.min.js'/>"></script>
+<script src="<c:url value='/resources/node_modules/swiper/swiper-bundle.min.js'/>"></script>
+
+
+
+
+
+<script src="<c:url value='/resources/custom/js/own.js'/>"></script>

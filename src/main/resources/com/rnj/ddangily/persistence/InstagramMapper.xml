@@ -9,7 +9,9 @@
     <result column="permalink" jdbcType="VARCHAR" property="permalink" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="caption" jdbcType="VARCHAR" property="caption" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
     <result column="collection_time" jdbcType="TIMESTAMP" property="collectionTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    instagram_id, id, media_type, media_url, permalink, username, caption, collection_time
+    instagram_id, id, media_type, media_url, permalink, username, caption, enabled, collection_time, 
+    last_update_time
   </sql>
   <select id="selectByExample" parameterType="com.rnj.ddangily.model.InstagramExample" resultMap="BaseResultMap">
     select
@@ -106,10 +109,12 @@
   <insert id="insert" parameterType="com.rnj.ddangily.model.Instagram">
     insert into instagram (instagram_id, id, media_type, 
       media_url, permalink, username, 
-      caption, collection_time)
+      caption, enabled, collection_time, 
+      last_update_time)
     values (#{instagramId,jdbcType=BIGINT}, #{id,jdbcType=BIGINT}, #{mediaType,jdbcType=VARCHAR}, 
       #{mediaUrl,jdbcType=VARCHAR}, #{permalink,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{caption,jdbcType=VARCHAR}, #{collectionTime,jdbcType=TIMESTAMP})
+      #{caption,jdbcType=VARCHAR}, #{enabled,jdbcType=TINYINT}, #{collectionTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.rnj.ddangily.model.Instagram">
     insert into instagram
@@ -135,8 +140,14 @@
       <if test="caption != null">
         caption,
       </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
       <if test="collectionTime != null">
         collection_time,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -161,8 +172,14 @@
       <if test="caption != null">
         #{caption,jdbcType=VARCHAR},
       </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=TINYINT},
+      </if>
       <if test="collectionTime != null">
         #{collectionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -196,8 +213,14 @@
       <if test="record.caption != null">
         caption = #{record.caption,jdbcType=VARCHAR},
       </if>
+      <if test="record.enabled != null">
+        enabled = #{record.enabled,jdbcType=TINYINT},
+      </if>
       <if test="record.collectionTime != null">
         collection_time = #{record.collectionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdateTime != null">
+        last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -213,7 +236,9 @@
       permalink = #{record.permalink,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       caption = #{record.caption,jdbcType=VARCHAR},
-      collection_time = #{record.collectionTime,jdbcType=TIMESTAMP}
+      enabled = #{record.enabled,jdbcType=TINYINT},
+      collection_time = #{record.collectionTime,jdbcType=TIMESTAMP},
+      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -239,8 +264,14 @@
       <if test="caption != null">
         caption = #{caption,jdbcType=VARCHAR},
       </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=TINYINT},
+      </if>
       <if test="collectionTime != null">
         collection_time = #{collectionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where instagram_id = #{instagramId,jdbcType=BIGINT}
@@ -253,7 +284,9 @@
       permalink = #{permalink,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
       caption = #{caption,jdbcType=VARCHAR},
-      collection_time = #{collectionTime,jdbcType=TIMESTAMP}
+      enabled = #{enabled,jdbcType=TINYINT},
+      collection_time = #{collectionTime,jdbcType=TIMESTAMP},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
     where instagram_id = #{instagramId,jdbcType=BIGINT}
   </update>
 </mapper>
