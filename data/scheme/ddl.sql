@@ -13,7 +13,9 @@ CREATE TABLE instagram
     permalink VARCHAR(256),
     username VARCHAR(56),
     caption VARCHAR(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci  DEFAULT NULL,
+    enabled          TINYINT         NOT NULL DEFAULT 0,
     collection_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+    last_update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
     PRIMARY KEY (instagram_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
