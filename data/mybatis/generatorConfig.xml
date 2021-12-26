@@ -23,7 +23,7 @@
         <jdbcConnection
                 connectionURL="jdbc:mariadb://localhost:3306/ddangily"
                 driverClass="org.mariadb.jdbc.Driver" password="root1234"
-                userId="ddangily_admin"/>
+                userId="ddangdmin"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
