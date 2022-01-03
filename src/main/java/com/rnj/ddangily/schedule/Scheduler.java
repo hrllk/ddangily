@@ -35,7 +35,7 @@ public class Scheduler {
 //        logger.debug("END TIME OF REFRESH TOKEN: [{}]",watch.getTotalTimeMillis());
 //    }
 
-    @Scheduled(fixedDelay = 60000) // 3
+    @Scheduled(fixedDelay = 600000) // 3
     public void updateInstagramPosts(){
         StopWatch watch = new StopWatch();
         watch.start();

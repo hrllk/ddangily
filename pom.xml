@@ -21,15 +21,14 @@
 	<profiles>
 		<profile>
 			<id>local</id>
-
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+<!--			<activation>-->
+<!--				<activeByDefault>true</activeByDefault>-->
+<!--			</activation>-->
 			<properties>
 
 				<db.name>ddangily</db.name>
 				<db.url>localhost</db.url>
-				<db.user>dduser</db.user>
+				<db.user>ddangdmin</db.user>
 				<db.password>root1234</db.password>
 				<db.port>3306</db.port>
 
@@ -56,16 +55,16 @@
 		</dependency>
 
 		<!-- servlet Complier if do not declare it we don't use jsp -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.apache.tomcat.embed</groupId>-->
+<!--			<artifactId>tomcat-embed-jasper</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
 		<!-- JSTL -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>jstl</artifactId>-->
+<!--		</dependency>-->
 
 		<!-- update resource -->
 		<dependency>
@@ -93,13 +92,6 @@
 			<artifactId>okhttp</artifactId>
 			<version>4.9.1</version>
 		</dependency>
-
-		<!--DriverSpy-->
-<!--		<dependency>-->
-<!--			<groupId>com.googlecode.log4jdbc</groupId>-->
-<!--			<artifactId>log4jdbc</artifactId>-->
-<!--			<version>1.2</version>-->
-<!--		</dependency>-->
 
 		<!-- LOG DEPENDENCIES -->
 		<!-- log4jdbc -->
