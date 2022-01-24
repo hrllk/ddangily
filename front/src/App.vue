@@ -1,30 +1,55 @@
 <template>
-<!--  <div id="app">-->
-<!--    <div id="nav">-->
-<!--      &lt;!&ndash; 해당 페이지로 이동 &ndash;&gt;-->
-<!--      <router-link to="/">Home</router-link> |-->
-<!--      <router-link to="/about">About</router-link>-->
-<!--    </div>-->
+    <v-app>
 
-<!--    &lt;!&ndash; 선택한 페이지 렌더링 &ndash;&gt;-->
-<!--    <router-view/>-->
-<!--  </div>-->
+      <v-container fluid
+          justify-center>
 
-    <v-app id="app">
-      <div id="nav">
-        <!-- 해당 페이지로 이동 -->
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
+<!--        <Header/>-->
+        <Header>
+          <WaitingForm @create_wait="update_page"/>
+        </Header>
+        <!-- 선택한 페이지 렌더링 -->
+        <router-view/>
 
-      <!-- 선택한 페이지 렌더링 -->
-      <router-view/>
+
+
+
+
+<!--        <component v-bind:is="currentView">-->
+<!--        </component>-->
+      </v-container>
     </v-app>
 </template>
 
 <script>
+import Header from './components/Nav'
+// import Home from './views/Home'
+// import Home from './components/Home'
 
 export default {
+  name: 'App',
+  // data() {
+  //   this.$parncurrentView: 'home'
+  // },
+  data: function (){
+    // currentTab:"/home";
+    return "home";
+  },
+  components: {
+    Header,
+    // Home
+  },
+  methods:{
+    update_page: function(page){ // 이벤트 버스로부터 받은 객체
+      // this.updated_waitings.push(waiting_list);
+      console.log("하위컴포넌트(헤더)에서 올라온 페이지",page);
+
+    }, // 데이터를 리스트에 추가
+  }
+
+
+
+
 }
 </script>
 
@@ -35,6 +60,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
+}
+.container{
+  padding: 0px !important;
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
-hi, i'm home
+  <div>
+    About
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Home.vue"
+  name: "About.vue"
 }
 </script>
 

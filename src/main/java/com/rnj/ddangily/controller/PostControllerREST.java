@@ -26,7 +26,6 @@ public class PostControllerREST {
 
         logger.debug("HI, I'M POSTS");
 
-
         InstagramExample example = new InstagramExample();
         example.createCriteria()
                 .andEnabledEqualTo((byte)1);

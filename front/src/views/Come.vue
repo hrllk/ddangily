@@ -1,10 +1,13 @@
+
 <template>
-hi, i'm about.vue
+<div>
+  come
+</div>
 </template>
 
 <script>
 export default {
-  name: "About.vue"
+  name: "Intro.vue"
 }
 </script>
 
