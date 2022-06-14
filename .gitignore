@@ -34,3 +34,6 @@ build/
 ### VS Code ###
 .vscode/
 ./yarn.lock
+
+front/dist/
+front/node_modules/
