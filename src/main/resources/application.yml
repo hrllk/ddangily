@@ -2,6 +2,11 @@ server:
   port: 8080
 
 spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/ddangily
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ddangdmin
+    password: root1234
   mvc:
     view:
       prefix: /WEB-INF/views/

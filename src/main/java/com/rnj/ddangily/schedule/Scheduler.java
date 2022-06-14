@@ -37,11 +37,11 @@ public class Scheduler {
 
     @Scheduled(fixedDelay = 60000) // 3
     public void updateInstagramPosts(){
-        StopWatch watch = new StopWatch();
-        watch.start();
-        logger.debug("START TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
-        updatePostService.updateInstagramPosts();
-        watch.stop();
-        logger.debug("END TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
+//        StopWatch watch = new StopWatch();
+//        watch.start();
+//        logger.debug("START TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
+//        updatePostService.updateInstagramPosts();
+//        watch.stop();
+//        logger.debug("END TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
     }
 }
