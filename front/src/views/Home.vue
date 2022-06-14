@@ -1,59 +1,74 @@
 <template>
-  <div class="card mt-5">
-    <div class="card-header">
+  <div class="row" style="padding: 15px">
+    <div class="col-lg-3 col-md-3 col-sm-6" :key="idx" v-for="(data,idx) in list" style="width:300px; height: 300px; padding: 15px">
+      <img :src="data.mediaUrl" width="100%" height="100%">
     </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-12">
-          <ul>
+<!--      <option :key="idx" :value="data.value" v-for="(data,idx) in list">{{ data.t }}</option>-->
 
-            <li v-for='item in items'>
-              {{ item.lang }}
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 
 <script>
 import axios from "axios";
+// import Vue from "vue";
+
+// const app = new Vue({
+//   el: '#app',
+//   data: {
+//     datas: [
+//         {item: "값1"},
+//       {item: "값2"},
+//       {item: "값3"}
+//     ]
+//   }
+// })
+// app.
 
 
-// const RESTHost = "localhost:8081";
-var app = new Vue({
-  el: '.card-body',
-  data: {
-    items: [
-      {lang:'java'},
-      {lang:'java'},
-      {lang:'java'},
-      {lang:'java'},
-      {lang:'java'},
-    ]
-  }
-})
 export default {
-  name: "Home.vue",
+  // name: "Home.vue",
 
-// axios
-  mounted: function () {
-    console.log("hi,")
-    getPosts();
+  data() {
+    return {
+      list :[]
+    }
   },
 
-}
 
-function getPosts(){
+  methods: {
+  },
+  // beforeCreate() {
+  //   console.log('beforeCreate');
+  // },
+  // created() {
+  //   console.log('created');
+  // },
+  // beforeMount() {
+  //   console.log('beforeMount');
+  // },
+  mounted() {
+    // console.log('mounted');
     axios.get('rest/v1/posts').then(res => {
-      console.log(res);
-
-
+      console.log("res.data:", res.data);
+      this.list = res.data;
     });
+  },
+  // beforeUpdate() {
+  //   console.log('beforeUpdate');
+  // },
+  // updated() {
+  //   console.log('updated');
+  // },
+  // beforeDestroy() {
+  //   console.log('beforeDestroy');
+  // },
+  // destroyed() {
+  //   console.log('destroyed');
+  // }
 }
+
+
 </script>
 
 <style scoped>

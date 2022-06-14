@@ -15,8 +15,6 @@
 
 
 
-<!--        <component v-bind:is="currentView">-->
-<!--        </component>-->
       </v-container>
     </v-app>
 </template>
