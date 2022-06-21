@@ -1,8 +1,7 @@
-package com.rnj.ddangily.service;
+package com.rnj.ddangily.utils;
 
 import com.rnj.ddangily.model.Constants;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,20 +9,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@Service
-public class HttpServiceImpl implements HttpService{
+@Slf4j
+public class HttpUtils {
 
-    @Override
-    public StringBuffer sendGetRequest(String refreshTokenUrl) {
-        URL url = null;
+    public static String sendAndGetResponse(String requestUrl){
+//        URL url = null;
         HttpURLConnection conn = null;
         StringBuffer response = null;
 
         try {
-            url = new URL(refreshTokenUrl);
+            URL url = new URL(requestUrl);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("User-Agent", Constants.USER_AGENT);
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
 
             /* RESPONSE */
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -32,10 +30,12 @@ public class HttpServiceImpl implements HttpService{
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
+
+            log.debug("response:[{}]", response);
             in.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("ERROR:", e);
         }
-        return response;
+        return response.toString();
     }
 }

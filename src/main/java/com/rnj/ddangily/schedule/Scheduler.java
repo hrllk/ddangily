@@ -1,7 +1,7 @@
 package com.rnj.ddangily.schedule;
 
 import com.rnj.ddangily.service.MasterConfigService;
-import com.rnj.ddangily.service.UpdatePostService;
+import com.rnj.ddangily.service.InstagramService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class Scheduler {
     MasterConfigService masterConfigService;
 
     @Autowired
-    UpdatePostService updatePostService;
+    InstagramService updatePostService;
 
     /***
      * 주기적으로 API 호출, 게시물을 가져오는 역할
@@ -40,7 +40,7 @@ public class Scheduler {
 //        StopWatch watch = new StopWatch();
 //        watch.start();
 //        logger.debug("START TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
-//        updatePostService.updateInstagramPosts();
+//        updatePostService.updatePosts();
 //        watch.stop();
 //        logger.debug("END TIME OF UPDATE INSTAGRAM POSTS: [{}]",watch.getTotalTimeMillis());
     }

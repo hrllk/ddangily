@@ -4,6 +4,7 @@ import okhttp3.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -11,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.Assert.*;
-
+@SpringBootTest
 public class SchedulerTest {
 
     @Before
