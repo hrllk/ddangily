@@ -1,27 +1,80 @@
-server:
-  port: 8081
 
 spring:
-  jpa:
-    open-in-view: false
-    generate-ddl: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  profiles:
-    active: @spring.profiles.active@
-
   datasource:
-    driverClassName: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://@db.url@:@db.port@/@db.name@
-    username: @db.user@
-    password: @db.password@
+    url: jdbc:mariadb://localhost:3306/ddangily
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ddangdmin
+    password: root1234
 
-#  mvc:
-#    view:
-#      prefix: /WEB-INF/views/
-#      suffix: .jsp
+    # hikari > DBCP 종류
+    hikari:
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 10
+      maximum-pool-size: 50
+      transaction-isolation: TRANSACTION_READ_UNCOMMITTED
+      pool-name: pool-jiniworld_demo
+      connectionInitSql: SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci
+# 옵션 팁 (둘중 하나사용 후자가 조금더 선택지가 넓음)
+  # spring.jpa.generate-ddl vs spring.jpa.properties.hibernate.hbm2ddl.auto
+  # spring.jpa.generate-ddl
+    # - true :
+    # - false :
+
+  # spring.jpa.properties.hibernate.hbm2ddl.auto
+    # - none : 아무 동작 하지 않습니다.
+    # - create-only : 테이블이 없을 경우 create합니다.
+    # - drop : 테이블을 drop 합니다.
+    # - create : 기존에 테이블이 존재할 경우 테이블 drop후 새로 create합니다.
+    # - create-drop : 앱 실행시 테이블 create하고 앱 종료시 테이블을 drop합니다.
+    # - validate : 엔티티 설정과 기존 테이블 설정이 다를 경우 에러 발생합니다.
+    # - update : 테이블, 컬럼정보가 달라졌을 경우 추가됩니다.
+
+  jpa:
+    # 동적쿼리 생성시 JDBC에 맞는 쿼리를 작성하기위해 필요
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    properties:
+      hibernate:
+        # Pretty 여부 (예쁘거나, 한줄이거나)
+        format_sql: true
+        # Entity가 변경되었을때 자동으로 DB에 반영(?)
+        hbm2ddl.auto: update
+#          - create-only
+#          - update
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: false
+    show-sql: true
 
 
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+
+server:
+  port: 8080
 ---
+#spring:
+#  config:
+#    activate:
+#      on-profile: "local"
+#  datasource:
+#    url: jdbc:log4jdbc:mariadb
+#    driver-class-name: "net.sf.log4jdbc.DriverSpy"
+#    username: "ddangily_admin"
+#    password: "root1234"
+
+
+
+#spring:
+#  config:
+#    activate:
+#      on-profile: @spring.profiles.active@
+#  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:log4jdbc:mariadb://@db.url@:@db.port@
+#    username: @db.user@
+#    password: @db.password@
+

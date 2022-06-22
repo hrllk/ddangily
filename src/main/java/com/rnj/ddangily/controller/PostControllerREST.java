@@ -1,8 +1,7 @@
 package com.rnj.ddangily.controller;
 
-import com.rnj.ddangily.model.Instagram;
-import com.rnj.ddangily.model.InstagramExample;
-import com.rnj.ddangily.persistence.InstagramMapper;
+import com.rnj.ddangily.entity.Instagram;
+import com.rnj.ddangily.service.InstagramService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +18,13 @@ public class PostControllerREST {
     Logger logger = LoggerFactory.getLogger(PostControllerREST.class);
 
     @Autowired
-    InstagramMapper instagramMapper;
+    InstagramService instagramService;
 
     @GetMapping("/posts")
     public List<Instagram> getPosts(){
 
         logger.debug("HI, I'M POSTS");
 
-        InstagramExample example = new InstagramExample();
-        example.createCriteria()
-                .andEnabledEqualTo((byte)1);
-        return instagramMapper.selectByExample(example);
-//        return "";
+        return instagramService.getPosts().get();
     }
 }
